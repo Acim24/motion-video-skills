@@ -1,0 +1,29 @@
+{
+  "name": "motion-video-audio",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "audio": "tsx scripts/build-audio.ts",
+    "render:wide": "remotion render src/index.ts Main-16x9 out/video-16x9.mp4",
+    "render:tall": "remotion render src/index.ts Main-9x16 out/video-9x16.mp4",
+    "master": "bash scripts/master.sh out/video-16x9.mp4 out/video-9x16.mp4",
+    "render": "npm run audio && npm run render:wide && npm run render:tall && npm run master",
+    "still": "remotion still src/index.ts Main-16x9 out/still.png --frame=60",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/google-fonts": "4.0.539",
+    "@remotion/transitions": "4.0.539",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3",
+    "@types/node": "22.9.0",
+    "tsx": "4.19.2"
+  }
+}
